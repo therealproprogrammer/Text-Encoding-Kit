@@ -38,4 +38,14 @@ def AddWordToDictionary(WordToAdd):
         ReadyToAdd = open("C:/YourShortListOfWords.txt", "a")
         ReadyToAdd.write("\n"+WordToAdd.lower())
 
-AddWordToDictionary("github")
+#Pads the word array with ^ to reshape it to the network's input size
+def PadWordArray(WordArrayToPad,InputSize):
+    if len(WordArrayToPad)>InputSize:
+        return WordArrayToPad[0:InputSize]
+    elif len(WordArrayToPad)==InputSize:
+        return WordArrayToPad
+    elif len(WordArrayToPad)<InputSize:
+        PaddedWordArray = WordArrayToPad
+        for PadChar in range(InputSize-len(WordArrayToPad)):
+            PaddedWordArray.append("^")
+        return PaddedWordArray
