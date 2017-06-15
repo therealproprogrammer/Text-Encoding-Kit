@@ -17,6 +17,23 @@ def LookUpWordValue(words):
         RealLookedUpArray.append(wordval/10000)
     return(RealLookedUpArray)
 
+
+
+#Translates the floating-point value array into a word array
+
+def LookUpWordForValue(wordvalues):
+    WordListHere = []
+    TheListOfWordsHere = open("C:/YourShortListOfWords.txt", "r")
+    TheWordListWithin = TheListOfWordsHere.read()
+    for line in TheWordListWithin.split('\n'):
+        WordListHere.append(line)
+    OutputWordListHere = []
+    for wordvalue in wordvalues:
+        OutputWordListHere.append(WordListHere[int(wordvalue*10000)])
+    return OutputWordListHere
+
+
+
 #Checks if the words in the word (string) array are part of the dictionary
 def IsValidWordArray(WordsToCheck):
     VALID = True
