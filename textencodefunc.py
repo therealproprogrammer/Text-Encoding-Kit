@@ -1,3 +1,4 @@
+
 #Translates the word (string) array into a floating-point value array
 def LookUpWordValue(words):
     TheDictionary={}
@@ -66,3 +67,29 @@ def PadWordArray(WordArrayToPad,InputSize):
         for PadChar in range(InputSize-len(WordArrayToPad)):
             PaddedWordArray.append("^")
         return PaddedWordArray
+
+    
+    
+#Converts the array of sentences to an array of word value array.
+#If necessary, they might be padded.
+
+def EasyConvertSentenceToValues(SentenceArray,InputSize):
+    ArrOfTokenWrdArrs=[]
+    #Tokenizes each sentence in ArrOfTokenWrdArrs
+    import nltk
+    for SentenceToTokenize in SentenceArray:
+        ArrOfTokenWrdArrs.append(PadWordArray(nltk.word_tokenize(SentenceToTokenize),InputSize))
+        
+    #Checks the validity of ArrOfTokenWrdArrs, extending the dictionary if necessary
+    for WordArray in ArrOfTokenWrdArrs:
+        for Word in WordArray:
+            if IsValidWordArray([Word]):
+                print(Word+" is a valid word.")
+            else:
+                AddWordToDictionary(Word)
+
+    #Converts ArrOfTokenWrdArrs to an array of word value arrays
+    ArrOfWrdValArrs=[]
+    for WordArrayToConvert in ArrOfTokenWrdArrs:
+        ArrOfWrdValArrs.append(LookUpWordValue(WordArrayToConvert))
+    return ArrOfWrdValArrs
