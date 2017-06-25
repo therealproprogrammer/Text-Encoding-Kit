@@ -35,6 +35,7 @@ def LookUpWordForValue(wordvalues):
 
 
 
+
 #Checks if the words in the word (string) array are part of the dictionary
 def IsValidWordArray(WordsToCheck):
     VALID = True
@@ -93,3 +94,55 @@ def EasyConvertSentenceToValues(SentenceArray,InputSize):
     for WordArrayToConvert in ArrOfTokenWrdArrs:
         ArrOfWrdValArrs.append(LookUpWordValue(WordArrayToConvert))
     return ArrOfWrdValArrs
+
+'''
+#Keras Example Below
+from keras.models import Sequential
+
+from keras.layers.core import Dense, Dropout, Activation
+
+from keras.optimizers import SGD
+
+import numpy as np 
+
+
+#The idea here is to output only one of the inputs (remove redundancy)
+#For some reason, the outputs I got had similar values (so the outputs started with the same letter)
+#I would appreciate it if anyone can help fix this bug
+
+#Here is the input data
+X = np.array(EasyConvertSentenceToValues(["code code","program program","pet pet"],9))
+
+#Here is the output data
+y = np.array(EasyConvertSentenceToValues(["code","program","pet"],1))
+
+
+
+model = Sequential()
+
+model.add(Dense(8, input_dim=9))
+
+model.add(Activation('tanh'))
+
+model.add(Dense(6))
+
+model.add(Activation('sigmoid'))
+
+model.add(Dense(1))
+
+model.add(Activation('sigmoid'))
+
+
+sgd = SGD(lr=0.1)
+
+model.compile(loss='binary_crossentropy', optimizer=sgd)
+
+
+
+model.fit(X, y, batch_size=1, nb_epoch=100)
+
+print(model.predict_proba(X))
+for whatever in model.predict_proba(X).tolist():
+    for theThing in whatever:
+        print(LookUpWordForValue([round(theThing,1000)]))
+'''
