@@ -1,3 +1,4 @@
+
 <h1>Text Encoding Kit Introduction</h1>
 <p>The <b>Text Encoding Kit</b> was created to convert words that are meaningful for humans into numbers that are meaningful for computers, and vice versa. This is especially important in the field of <b>Natural Language Processing</b>, where Recurrent Neural Networks are used to generate articles or classify text as having negative or positive sentiment.</p>
 
@@ -11,10 +12,27 @@ Welcome to the Text Encoding Kit! In this brief tutorial, you will learn how to:
 
 <h3>1. How to Lookup the Numerical Values of Word Strings</h3>
 
-Let's say we had an array of words (in string form) that we wanted a Neural Network to understand. We cannot feed the Neural Network the word array directly. Instead, we can convert the word array into a numerical array that can be used as the network's input or expected output. In the Text Encoding Kit, there is a function just for that: The <b>LookUpWordValue</b> function.
-<pre>
-LookUpWordValue([<font color="green"> "the"</font>,<font color="green"> "function"</font>,<font color="green">" takes"</font>,<font color="green"> "an"</font>,<font color="green"> "array"</font>,<font color="green"> "of"</font>,<font color="green"> "words"</font>])
-</pre>
+Let's say we had an array of words (in string form) that we wanted a Neural Network to understand. We cannot feed the Neural Network the word array directly. Instead, we can convert the word array into a numerical array that can be used as the network's input or expected output. In the Text Encoding Kit, there is a function just for that: The <code><b>LookUpWordValue</b></code> function.
+
+EXAMPLE:
+```python
+print(LookUpWordValue["a","pet"])
+#Gives you the numerical values of "a" and "pet" as an array, based on their positions in YourShortListOfWords.txt
+```
+
+However, what would happen if we used <code>LookUpWordValue</code> on words not in YourShortListOfWords.txt? We would recieve an error!
+```python
+LookUpWordValue(["UnknownWord","NotInDictionary"])
+#Gives an error
+```
+
+We can add the unknown words to YourShortListOfWords.txt manually using a text editor like Notepad, or we can just use the <code><b>AddWordToDictionary</b></code> function. As a bonus, this function will not add words that already exist in the text file.
+
+EXAMPLE:
+```python
+AddWordToDictionary(["UnknownWord","NotInDictionary"])
+#The new words were added to YourShortListOfWords.txt
+```
 
 <h1>Message to Contributors</h1>
 <p>Contribution to this repository is highly appreciated, and will help make the Text Encoding Kit smarter and more useful. If you encounter any strange errors or problems while using this kit, let us know in the <b>Issues</b> section of GitHub.</p>
