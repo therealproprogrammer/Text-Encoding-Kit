@@ -20,6 +20,8 @@ print(LookUpWordValue["a","pet"])
 #Gives you the numerical values of "a" and "pet" as an array, based on their positions in YourShortListOfWords.txt
 ```
 
+<h3>2. How to Add Words to the Lookup Dictionary</h3>
+
 However, what would happen if we used <code>LookUpWordValue</code> on words not in YourShortListOfWords.txt? We would recieve an error!
 ```python
 LookUpWordValue(["UnknownWord","NotInDictionary"])
@@ -32,6 +34,16 @@ EXAMPLE:
 ```python
 AddWordToDictionary(["UnknownWord","NotInDictionary"])
 #The new words were added to YourShortListOfWords.txt
+```
+
+<h3>3. How to Lookup Word Strings Based on Numerical Values</h3>
+
+So far, we learned how to lookup the numerical values of words. How do we lookup words based on numerical values? There is a function for that too: The <code><b>LookUpWordForValue</b></code> function.
+
+EXAMPLE:
+```python
+print(LookUpWordForValue[0.0001,0.0002])
+#Gives you the words that 0.0001 and 0.0002 represent, based on the words' positions in YourShortListOfWords.txt
 ```
 
 <h1>Message to Contributors</h1>
