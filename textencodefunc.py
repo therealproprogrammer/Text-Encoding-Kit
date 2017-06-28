@@ -157,9 +157,10 @@ from keras.optimizers import SGD
 import numpy as np 
 
 
-#The idea here is to output only one of the inputs (remove redundancy)
-#For some reason, the outputs I got had similar values (so the outputs started with the same letter)
-#I would appreciate it if anyone can help fix this bug
+#The idea here is to output only one of the inputs (remove redundancy).
+#For some reason, the outputs I got had similar values (so the outputs started with the same letter) when the dictionary file
+#contained a long list of alphabetically-arranged words.
+#I would appreciate it if anyone can help fix this bug.
 
 #Here is the input data
 X = np.array(EasyConvertSentenceToValues(["code code","program program","pet pet"],9))
