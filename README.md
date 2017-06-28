@@ -46,6 +46,16 @@ print(LookUpWordForValue[0.0001,0.0002])
 #Gives you the words that 0.0001 and 0.0002 represent, based on the words' positions in YourShortListOfWords.txt
 ```
 
+<h3>4. How to Easily Convert Sentences into Numerical Values</h3>
+
+If the neural network needed to take several raw sentences as input, it would be too difficult to use <code>LookUpWordValue</code> and <code>LookUpWordForValue</code>. Also, the input array's size needs to match the network's expected input size. For this, we have the <code><b>EasyConvertSentenceToValues</b></code> function. It takes an array of sentences and, with the help of NLTK, will break the sentences into words and convert those into numerical values. The result is an array of word value arrays (arrays within an array):
+
+EXAMPLE:
+```python
+print(EasyConvertSentenceToValues(["a pet","pet pet"]))
+#Converts the sentences into numerical value arrays
+```
+
 <h1>Message to Contributors</h1>
 <p>Contribution to this repository is highly appreciated, and will help make the Text Encoding Kit smarter and more useful. If you encounter any strange errors or problems while using this kit, let us know in the <b>Issues</b> section of GitHub.</p>
 
