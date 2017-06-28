@@ -1,6 +1,15 @@
 
-#Translates the word (string) array into a floating-point value array
 def LookUpWordValue(words):
+    '''
+    ---------------------------------------------------------------------
+    DESCRIPTION
+    Translates the word (string) array into a floating-point value array.
+    ---------------------------------------------------------------------
+    PARAMETERS
+    words (string array): The array of words to convert into a floating-
+    point value array.
+    ---------------------------------------------------------------------
+    '''
     TheDictionary={}
     wordNum=0
     TheListOfWords = open("C:/YourShortListOfWords.txt", "r")
@@ -19,10 +28,17 @@ def LookUpWordValue(words):
     return(RealLookedUpArray)
 
 
-
-#Translates the floating-point value array into a word array
-
 def LookUpWordForValue(wordvalues):
+    '''
+    ---------------------------------------------------------------------
+    DESCRIPTION
+    Translates the floating-point value array into a word (string) array.
+    ---------------------------------------------------------------------
+    PARAMETERS
+    wordvalues (floating-point value array): The array of floating-point
+    values to convert into a word (string) array.
+    ---------------------------------------------------------------------
+    '''
     WordListHere = []
     TheListOfWordsHere = open("C:/YourShortListOfWords.txt", "r")
     TheWordListWithin = TheListOfWordsHere.read()
@@ -34,10 +50,18 @@ def LookUpWordForValue(wordvalues):
     return OutputWordListHere
 
 
-
-
-#Checks if the words in the word (string) array are part of the dictionary
 def IsValidWordArray(WordsToCheck):
+    '''
+    ---------------------------------------------------------------------
+    DESCRIPTION
+    Checks if the words in the word (string) array are part of the
+    dictionary.
+    ---------------------------------------------------------------------
+    PARAMETERS
+    WordsToCheck (string array): The array of words to check for in the
+    dictionary.
+    ---------------------------------------------------------------------
+    '''
     VALID = True
     try:
         LookUpWordValue(WordsToCheck)
@@ -45,8 +69,17 @@ def IsValidWordArray(WordsToCheck):
         VALID = False
     return VALID
 
-#Adds a word to the dictionary file, if it does not already exist
+
 def AddWordToDictionary(WordToAdd):
+    '''
+    ---------------------------------------------------------------------
+    DESCRIPTION
+    Adds a word to the dictionary file, if it does not already exist.
+    ---------------------------------------------------------------------
+    PARAMETERS
+    WordToAdd (string): The word to add to the dictionary.
+    ---------------------------------------------------------------------
+    '''
     ListOfExistWords = open("C:/YourShortListOfWords.txt", "r")
     ExistingWords = ListOfExistWords.read()
     NOTTAKEN = True
@@ -57,8 +90,19 @@ def AddWordToDictionary(WordToAdd):
         ReadyToAdd = open("C:/YourShortListOfWords.txt", "a")
         ReadyToAdd.write("\n"+WordToAdd.lower())
 
-#Pads the word array with ^ to reshape it to the network's input size
+
 def PadWordArray(WordArrayToPad,InputSize):
+    '''
+    ---------------------------------------------------------------------
+    DESCRIPTION
+    Pads the word array with ^ to reshape it to the network's input size,
+    or trims it if necessary. Otherwise, leaves it unchanged.
+    ---------------------------------------------------------------------
+    PARAMETERS
+    WordArrayToPad (string array): The word array to pad.
+    InputSize (integer): The input size the neural network expects.
+    ---------------------------------------------------------------------
+    '''
     if len(WordArrayToPad)>InputSize:
         return WordArrayToPad[0:InputSize]
     elif len(WordArrayToPad)==InputSize:
@@ -69,12 +113,19 @@ def PadWordArray(WordArrayToPad,InputSize):
             PaddedWordArray.append("^")
         return PaddedWordArray
 
-    
-    
-#Converts the array of sentences to an array of word value array.
-#If necessary, they might be padded.
 
 def EasyConvertSentenceToValues(SentenceArray,InputSize):
+    '''
+    ---------------------------------------------------------------------
+    DESCRIPTION
+    Converts the array of sentences to an array of word value arrays. If
+    necessary, they might be padded.
+    ---------------------------------------------------------------------
+    PARAMETERS
+    SentenceArray (string array): The sentence array to convert.
+    InputSize (integer): The input size the neural network expects.
+    ---------------------------------------------------------------------
+    '''
     ArrOfTokenWrdArrs=[]
     #Tokenizes each sentence in ArrOfTokenWrdArrs
     import nltk
