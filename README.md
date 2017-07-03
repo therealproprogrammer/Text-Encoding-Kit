@@ -1,4 +1,5 @@
 
+<h1>NOTE: THIS REPOSITORY HAS BEEN DEPRECATED IN FAVOR OF A NEWER NATURAL LANGUAGE MODEL
 <h1>Text Encoding Kit Introduction</h1>
 <p>The <b>Text Encoding Kit</b> was created to convert words that are meaningful for humans into numbers that are meaningful for computers, and vice versa. This is especially important in the field of <b>Natural Language Processing</b>, where Recurrent Neural Networks are used to generate articles or classify text as having negative or positive sentiment.</p>
 
